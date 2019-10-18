@@ -1,0 +1,28 @@
+{
+  "name": "signicat-event-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.7.12",
+    "husky": "^3.0.8",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "cross-env": "^6.0.3",
+    "mobx": "^5.14.0"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production parcel build ./src/main.ts",
+    "prettify": "prettier --write \"./**/*.{ts,tsx}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run prettify"
+    }
+  }
+}

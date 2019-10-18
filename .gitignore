@@ -1,0 +1,15 @@
+node_modules/
+public/
+dist/
+.cache/
+.vscode/
+.sonarlint/
+.idea/
+yarn-error.log
+package-lock.json
+.DS_Store
+.env
+logs/*
+app/examples/compiled/*
+app/examples/routes/*
+app/examples/simulations/*
