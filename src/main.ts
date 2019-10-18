@@ -96,6 +96,9 @@ class SocketStore {
     this.status = 'fetching'
     this.userData = undefined
     this.sendMessage('FETCH_METHODS', {})
+    this.attemptId = undefined
+    this.attemptUrl = undefined
+    this.meta = undefined
   }
 }
 
