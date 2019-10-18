@@ -3,6 +3,12 @@ import { observable, action } from 'mobx'
 import LoggerService from './services/logger.service'
 import events from './constants/events.constants'
 
+interface IMeta {
+  provider: {
+    [key: string]: string
+  }
+}
+
 class SocketStore {
   private client: WebSocket | undefined
   @observable public status = ''
@@ -11,6 +17,7 @@ class SocketStore {
   @observable public attemptId: string | undefined
   @observable.ref public userData: object | undefined
   @observable public preloading = true
+  @observable public meta: IMeta | undefined
 
   constructor() {
     this.status = 'initialized'
@@ -54,6 +61,7 @@ class SocketStore {
       this.userData = undefined
       this.attemptUrl = data.body.attemptUrl
       this.attemptId = data.body.attemptId
+      this.meta = data.body.meta
     }
     if (data.route === events.completedAuth.topic) {
       this.attemptUrl = undefined
