@@ -100,6 +100,11 @@ class SocketStore {
     this.attemptUrl = undefined
     this.meta = undefined
   }
+
+  @action.bound
+  public reconnect(attemptId: string) {
+    this.sendMessage('RECONNECT', { attemptId })
+  }
 }
 
 const SocketStoreInstance = new SocketStore()
